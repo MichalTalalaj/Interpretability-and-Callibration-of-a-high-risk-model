@@ -1,5 +1,13 @@
 # Model_interpretowalny
 
+## Current portfolio presentation
+
+- [Slides (PDF)](reports/portfolio_v1/results_presentation.pdf)
+- [Editable PowerPoint](reports/portfolio_v1/results_presentation.pptx)
+
+The current 35-slide presentation reports the audited development study. Historical test results are exploratory. The theory PDF remains local.
+
+
 * Presentation.pdf - prezentacja wyników
 
 ## XGBoost Model:

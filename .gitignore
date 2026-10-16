@@ -1,0 +1,12 @@
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+artifacts/
+reports/*
+!reports/portfolio_v1/
+reports/portfolio_v1/*
+!reports/portfolio_v1/README.md
+!reports/portfolio_v1/results_presentation.pptx
+!reports/portfolio_v1/results_presentation.pdf
