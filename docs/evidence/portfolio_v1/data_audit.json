@@ -1,0 +1,106 @@
+{
+  "dataset_sha256": "c963cdec3e84e405641415aba165c9d5c64e729a588c613d5ed4bdfc11c5b29a",
+  "historical_manifest_sha256": "2bc2e766e80c1059d37f938893c5c22c9f3030db2a65bd55ce1ac9a3a7274b35",
+  "total_rows": 3000,
+  "development_rows": 2400,
+  "development_events": 146,
+  "excluded_rows": 600,
+  "raw_columns_with_target": 220,
+  "configured_predictors": 218,
+  "full_exact_duplicate_rows": 0,
+  "development_duplicate_predictor_rows": 0,
+  "development_exact_duplicate_field_groups": [
+    [
+      "wsk_ROS",
+      "wsk_rent_sprzedazy"
+    ],
+    [
+      "wsk_zysk_op_zobowiazania",
+      "wsk_zysk_operacyjny_zob_1"
+    ],
+    [
+      "wsk_koszty_przychody",
+      "wsk_poziom_kosztow_operacyjnych"
+    ],
+    [
+      "wsk_koszty_fin_przychody",
+      "wsk_poziom_kosztow_finansowych"
+    ],
+    [
+      "wsk_koszty_odsetki_przychody",
+      "wsk_zadluzenie_gotowka"
+    ],
+    [
+      "wsk_udzial_kap_wlasnego_aktywa_1",
+      "wsk_struktura_kap_wlasnego_1"
+    ],
+    [
+      "wsk_ebitda_koszty_odsetkowe_1",
+      "wsk_ebitda_zobowiazan_odsetki_1"
+    ],
+    [
+      "wsk_ebitda_koszty_odsetkowe_2",
+      "wsk_ebitda_zobowiazan_odsetki_2"
+    ]
+  ],
+  "raw_dropped_field": {
+    "name": "szczegolnaFormaPrawna_Symbol",
+    "unique_values": 1,
+    "status": "historically excluded; no new target-derived inclusion choice"
+  },
+  "development_all_missing": [],
+  "development_near_constant_observed": [
+    "Wartosc_firmy",
+    "Naleznosci_dostaw_uslug_pow12m_powiazane",
+    "Naleznosci_dostaw_uslug_pow12m_kapitale",
+    "Zobowiazania_dostaw_uslug_pow12m_powiazane",
+    "Zobowiazania_dostaw_uslug_pow12m_kapitale",
+    "Ujemna_wartosc_firmy"
+  ],
+  "development_more_than_95_percent_missing": [
+    "RP_przeplywy_operacyjne",
+    "RP_amortyzacja",
+    "wsk_akt_generowania_got_2",
+    "wsk_pokrycie_wyd_fin_gotowkowe_2",
+    "wsk_pokrycie_zob_kr_gotowkowe_2",
+    "wsk_zadluzenia_gotowki_2",
+    "wsk_zysk_CF_operacyjny"
+  ],
+  "correlated_numeric_pairs_abs_rho_ge_098": 66,
+  "identical_four_field_profile_rows": 4,
+  "profile_fields": [
+    "wsk_liczba_dni_istnienia",
+    "Aktywa",
+    "Kapital_wlasny",
+    "przychody_sprzedazy"
+  ],
+  "profile_caveat": "A coincident financial profile is not a verified borrower identifier.",
+  "raw_numeric_infinite_cells": 1014,
+  "metadata": {
+    "target": "default",
+    "observed_values": [
+      0,
+      1
+    ],
+    "default_definition": "not documented beyond binary label",
+    "horizon": "unknown",
+    "observation_date": "unknown",
+    "feature_availability_at_prediction": "unverified for every configured field",
+    "borrower_key": "not found in supplied schema",
+    "timestamp": "not found in supplied schema; age is not a record date",
+    "repeated_borrowers": "cannot establish or exclude without a borrower identifier",
+    "name_based_id_time_candidates": [
+      "podatek_dochodowy"
+    ]
+  },
+  "verified": [
+    "No exact duplicate records in the supplied full CSV.",
+    "Heavy missingness, high category cardinality and extreme numerical ranges are present.",
+    "Historical test row membership is excluded and retained verbatim."
+  ],
+  "hypotheses": [
+    "Near-zero financial denominators may generate extreme ratios; source formulas are unavailable.",
+    "Repeated borrowers, post-outcome feature leakage and temporal dependence cannot be ruled out.",
+    "Limited signal and label quality are possible explanations; no performance ceiling is established."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "passed": true,
+  "recipes": [
+    "dummy",
+    "lr_clip"
+  ],
+  "outer_folds": 6,
+  "prediction_rows": 19200,
+  "scope": "Cold candidate searches and refits using the portable tracked exclusion manifest; raw/sigmoid probabilities, thresholds and labels reproduced.",
+  "no_historical_test_assessment": true
+}

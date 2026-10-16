@@ -1,0 +1,706 @@
+[
+  {
+    "name": "dummy",
+    "family": "dummy",
+    "hypothesis": "Natural-prevalence constant-score benchmark.",
+    "grid": {},
+    "eligible_for_family_selection": false
+  },
+  {
+    "name": "lr_standard",
+    "family": "glassbox",
+    "hypothesis": "Reference: current all-field preprocessing with stronger tuned L2.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_weighted",
+    "family": "glassbox",
+    "hypothesis": "Balanced versus unweighted L2, with identical candidates.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_clip",
+    "family": "glassbox",
+    "hypothesis": "Train-fitted 1%/99% clipping versus standard L2.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_robust",
+    "family": "glassbox",
+    "hypothesis": "Robust versus standard scaling after identical clipping.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_rare",
+    "family": "glassbox",
+    "hypothesis": "Pool rare categories after clipping; keep raw one-hot groups intact.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ],
+      "preprocessor__columns__categorical__onehot__min_frequency": [
+        5,
+        20
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_no_indicators",
+    "family": "glassbox",
+    "hypothesis": "Missingness indicators versus no indicators, after clipping.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_drop_sparse",
+    "family": "glassbox",
+    "hypothesis": "Drop almost-unobserved raw fields; missingness cutoff selected inside CV.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ],
+      "features__missing_limit": [
+        0.95,
+        0.99
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_redundancy",
+    "family": "glassbox",
+    "hypothesis": "Greedy Spearman redundancy reduction; cutoff selected inside CV.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ],
+      "features__correlation_limit": [
+        0.9,
+        0.98
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_grouped",
+    "family": "glassbox",
+    "hypothesis": "Select complete raw fields by univariate association; field count selected inside CV.",
+    "grid": {
+      "classifier__C": [
+        0.0001,
+        0.003,
+        0.03,
+        0.3
+      ],
+      "features__top_k": [
+        25,
+        75,
+        150
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_l1",
+    "family": "glassbox",
+    "hypothesis": "Embedded L1 versus L2 after identical clipping.",
+    "grid": {
+      "classifier__C": [
+        0.003,
+        0.01,
+        0.03,
+        0.1
+      ]
+    },
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "lr_legacy",
+    "family": "glassbox",
+    "hypothesis": "Frozen original C=2 unweighted logistic reference under the new protocol.",
+    "grid": {
+      "classifier__C": [
+        2.0
+      ]
+    },
+    "eligible_for_family_selection": false
+  },
+  {
+    "name": "lr_historical_selected",
+    "family": "glassbox",
+    "hypothesis": "Frozen prior selected balanced L1 C=.1 reference, new development protocol.",
+    "grid": {
+      "classifier__C": [
+        0.1
+      ]
+    },
+    "eligible_for_family_selection": false
+  },
+  {
+    "name": "xgb_legacy",
+    "family": "blackbox",
+    "hypothesis": "Frozen original tree configuration; quantify overfitting on development.",
+    "grid": {},
+    "eligible_for_family_selection": false
+  },
+  {
+    "name": "xgb_historical_selected",
+    "family": "blackbox",
+    "hypothesis": "Frozen heavily regularized prior winner; investigate underfitting.",
+    "grid": {},
+    "eligible_for_family_selection": false
+  },
+  {
+    "name": "xgb_search",
+    "family": "blackbox",
+    "hypothesis": "Matched learning-rate/tree-count paths and moderate complexity controls.",
+    "grid": [
+      {
+        "classifier__n_estimators": [
+          150
+        ],
+        "classifier__learning_rate": [
+          0.08
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          150
+        ],
+        "classifier__learning_rate": [
+          0.08
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          5
+        ],
+        "classifier__reg_lambda": [
+          20.0
+        ],
+        "classifier__gamma": [
+          0.2
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          5
+        ],
+        "classifier__reg_lambda": [
+          20.0
+        ],
+        "classifier__gamma": [
+          0.2
+        ]
+      }
+    ],
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "xgb_weighted",
+    "family": "blackbox",
+    "hypothesis": "Full fold-local class weighting with the identical eight tree candidates.",
+    "grid": [
+      {
+        "classifier__n_estimators": [
+          150
+        ],
+        "classifier__learning_rate": [
+          0.08
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          150
+        ],
+        "classifier__learning_rate": [
+          0.08
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          5
+        ],
+        "classifier__reg_lambda": [
+          20.0
+        ],
+        "classifier__gamma": [
+          0.2
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          5
+        ],
+        "classifier__reg_lambda": [
+          20.0
+        ],
+        "classifier__gamma": [
+          0.2
+        ]
+      }
+    ],
+    "eligible_for_family_selection": true
+  },
+  {
+    "name": "xgb_rare",
+    "family": "blackbox",
+    "hypothesis": "Rare-level pooling with the identical eight unweighted tree candidates.",
+    "grid": [
+      {
+        "classifier__n_estimators": [
+          150
+        ],
+        "classifier__learning_rate": [
+          0.08
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          150
+        ],
+        "classifier__learning_rate": [
+          0.08
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          2
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          1
+        ],
+        "classifier__reg_lambda": [
+          5.0
+        ],
+        "classifier__gamma": [
+          0.0
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          300
+        ],
+        "classifier__learning_rate": [
+          0.04
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          5
+        ],
+        "classifier__reg_lambda": [
+          20.0
+        ],
+        "classifier__gamma": [
+          0.2
+        ]
+      },
+      {
+        "classifier__n_estimators": [
+          600
+        ],
+        "classifier__learning_rate": [
+          0.02
+        ],
+        "classifier__max_depth": [
+          3
+        ],
+        "classifier__min_child_weight": [
+          5
+        ],
+        "classifier__reg_lambda": [
+          20.0
+        ],
+        "classifier__gamma": [
+          0.2
+        ]
+      }
+    ],
+    "eligible_for_family_selection": true
+  }
+]

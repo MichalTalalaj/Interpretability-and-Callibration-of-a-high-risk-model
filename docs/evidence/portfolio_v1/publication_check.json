@@ -1,0 +1,129 @@
+{
+  "passed": true,
+  "checkout": "Export of staged Git index; no ignored artifacts copied",
+  "environment": "Existing pinned Windows/CPython 3.12 environment; not a fresh dependency installation",
+  "unit_tests": 19,
+  "experiment_checks": [
+    {
+      "study": "portfolio_v1",
+      "fold_rows": 240,
+      "numeric_columns": 30,
+      "tolerance": {
+        "rtol": 1e-07,
+        "atol": 1e-09
+      },
+      "settings_match": true,
+      "runtime_excluded": true,
+      "inner_L1_variation": [
+        {
+          "column": "inner_ap",
+          "rows_outside_tolerance": 22,
+          "recipes": [
+            "lr_historical_selected",
+            "lr_l1"
+          ],
+          "max_absolute_difference": 0.00012602100562542073
+        },
+        {
+          "column": "inner_roc_auc",
+          "rows_outside_tolerance": 18,
+          "recipes": [
+            "lr_historical_selected",
+            "lr_l1"
+          ],
+          "max_absolute_difference": 0.000494540615103567
+        },
+        {
+          "column": "inner_train_ap",
+          "rows_outside_tolerance": 24,
+          "recipes": [
+            "lr_historical_selected",
+            "lr_l1"
+          ],
+          "max_absolute_difference": 0.0006792272871182226
+        }
+      ],
+      "prediction_rows_compared": 192000,
+      "saved_models_reloaded_and_checked": 108
+    },
+    {
+      "study": "portfolio_intercept_v1",
+      "fold_rows": 48,
+      "numeric_columns": 30,
+      "tolerance": {
+        "rtol": 1e-07,
+        "atol": 1e-09
+      },
+      "settings_match": true,
+      "runtime_excluded": true,
+      "inner_L1_variation": [
+        {
+          "column": "inner_ap",
+          "rows_outside_tolerance": 12,
+          "recipes": [
+            "lr_l1_intercept"
+          ],
+          "max_absolute_difference": 0.0013109730395025887
+        },
+        {
+          "column": "inner_roc_auc",
+          "rows_outside_tolerance": 12,
+          "recipes": [
+            "lr_l1_intercept"
+          ],
+          "max_absolute_difference": 0.002388733461560988
+        },
+        {
+          "column": "inner_train_ap",
+          "rows_outside_tolerance": 12,
+          "recipes": [
+            "lr_l1_intercept"
+          ],
+          "max_absolute_difference": 0.0036829953651904
+        }
+      ],
+      "prediction_rows_compared": 38400,
+      "saved_models_reloaded_and_checked": 18
+    }
+  ],
+  "interpretation_scope": "Interpretation remains the recorded original run; not repeated in this publication check",
+  "caveat": "Inner L1 search metrics vary slightly between refits. The same settings were selected and all checked outer metrics match. Exact inner-search bitwise reproducibility is not claimed; the cause was not isolated.",
+  "original_experiments_replaced": false,
+  "historical_test_reassessed": false,
+  "no_deletions_staged": true,
+  "credential_pattern_scan": "passed",
+  "source_sha256": {
+    "config/config.yaml": "65d6ba3ea76e028d081c6aaec4d0eeb6ac80e976213d1a9e4a010865029c6f08",
+    "config/dataset_identity.json": "5d022a9137b968b0335d5deee1fb79ceaecfad6b9b718485f022b452d11caca7",
+    "config/historical_test_indices.csv": "fe3eddf0446cb0748040064d7aedf1b54803005408074346feb6ea38b4d56e7a",
+    "config/portfolio.yaml": "fad5dd90a64bec140f49bea7fcd2a77fc576edab89a44a9432f28106236da453",
+    "config/portfolio_intercept.yaml": "8a2e533da09d2ffcfaec7af2f900d0e42a3274797ca689a3881be576a3c1762b",
+    "config/tuned_blackbox.yaml": "7246d824b30595d835aa5ca15e28af64d0a305ec2b50d3859a2e9537c35d5a30",
+    "config/tuned_glassbox.yaml": "7d6b20c2566990e497273818f20ecec6683feb0b0e5f6a36ab037cf1d4a3b106",
+    "requirements.txt": "54e244e18dbeea4a13191ce885b7180a6e8391cbb9d90b2949301d7385d516d2",
+    "src/__init__.py": "3cf2ee9db952fbb9e8bc140ca5200d323f9b63b110d75a32269f29a1d836ad17",
+    "src/config.py": "bbf73adc2a3e429db538d9a51e95e927453aacf2d09ca2340b6f369b343d2bd4",
+    "src/data/__init__.py": "0fe41fc480ecc8ae35666527ff718f94a67101128d6f0a6c146cf453875c1625",
+    "src/data/loader.py": "df9867b8ccf9425df8d3d9f2d0f3dd10f145ac9f51d1d905cdae9688f788b04b",
+    "src/data/preprocessing.py": "f1ec105be91f73746b3e9eccdc8881953d2f6f7a0d7ccc8523a8870d1c687061",
+    "src/evaluation/__init__.py": "6e938d1bcf056790e9af8007f481054301ce406a50a2b9b206271b937c86a9b5",
+    "src/evaluation/metrics.py": "26147751f15ac755b7d6f56661e6b651be157c11d005eb30bed4beb2cd9c7a26",
+    "src/experiments/__init__.py": "a9da1d45c100e796d980340c5eecf4aa9f0e73bf94aeefb063f2c544fb50beaa",
+    "src/experiments/calibration.py": "c36a5e570344998bc46cb59a73e2567fdfd0f88cb03d31d9bda7810181181af4",
+    "src/experiments/data.py": "29aa4ed941e1292ee25c2a009775124db34dd2c79cf37e34f77c8e7e546904ae",
+    "src/experiments/intercept_study.py": "4f41c10437b36113bf1110e438abca76f254e706bb3dde1b5e6087bf31ac47c4",
+    "src/experiments/interpretation.py": "d7e28ba84cfe3cdb5b645f4da487ae94386781238a60b1bc1ea68a968604526d",
+    "src/experiments/protocol.py": "256b1e3bd45ec3d30a3c0558ca69ef2bdf88cbc1ab6c83f945b3fba4458e095e",
+    "src/experiments/recipes.py": "d1c0921fa842a4e4b00ce09972b8929cb448ca71090f823aac6620f97d7263be",
+    "src/experiments/transforms.py": "c4bc24bda7e2b6a36d472f5498ee8389c84d30e5196aa3e80ad0d33ba52b61bd",
+    "src/experiments/validation.py": "a259fcd3a2bcec6c6b832fc238c3ed3ea7f2c213a123e2fd46711dbcef80e54a",
+    "src/explainability/__init__.py": "40152031b4207f826f6950fb13930265b6e9c8458a74265ff1e4e5561db2544d",
+    "src/explainability/explainers.py": "df835ed60870a1b6c62b12cf71d7874d9ea8d2c36dbe4a221e58f1ade1a0d1ee",
+    "src/models/__init__.py": "3f96ef3b3c03d13e7746df8f6ed90a8dfa6f1bfcca8bab829e6ed1d8112cd4fc",
+    "src/models/base.py": "4e6091fdd8160dc22531e3977f722effb7ce1e8bfec2d335b80052311998966d",
+    "src/models/blackbox.py": "61a698808a894b7c6fbcb1a4787ac48f7e617ec83ab8d53c9136e796308bab57",
+    "src/models/glassbox.py": "2fc172409888bf7661b70598439fe7668ac6d3526cf7cea17820a793a8f2fac8",
+    "src/models/weighted_xgboost.py": "38e3ea542e1d8bbf1b123d108f4ca2810827f58242428d6841c02d9ea57aadac",
+    "src/tuning.py": "17d6a37cf6ba609c1061e199d8ef983d6ce3be499efd589e2f76b9c057ed92c7"
+  }
+}

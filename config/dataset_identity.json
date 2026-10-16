@@ -1,0 +1,10 @@
+{
+  "dataset_filename": "zbi\u00f3r_10.csv",
+  "sha256": "5aaf9d63e11986017925e56831d46c18a1cdbd0e8caef5283c92072a93ad4745",
+  "recorded_raw_sha256": "c963cdec3e84e405641415aba165c9d5c64e729a588c613d5ed4bdfc11c5b29a",
+  "hash_normalization": "Only CRLF-to-LF newline normalization; content, feature and row ordering remain protected.",
+  "historical_test_rows": 600,
+  "indices_sha256": "983cb3034852ec0ba548708759157a178c911cb7094772f1cd4d2f3540de8f18",
+  "source": "Original glassbox predictions_test.csv row_index column, copied verbatim without labels.",
+  "interpretation": "Already inspected historical test; never a new or untouched final assessment."
+}

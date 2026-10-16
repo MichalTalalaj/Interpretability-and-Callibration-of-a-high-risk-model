@@ -1,0 +1,136 @@
+{
+  "passed": true,
+  "saved_models_checked": 18,
+  "per_model": [
+    {
+      "directory": "repeat_0\\fold_0\\lr_l1_intercept",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_0\\lr_lbfgs_clip",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_0\\lr_lbfgs_standard",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_1\\lr_l1_intercept",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_1\\lr_lbfgs_clip",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_1\\lr_lbfgs_standard",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_2\\lr_l1_intercept",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_2\\lr_lbfgs_clip",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_0\\fold_2\\lr_lbfgs_standard",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_0\\lr_l1_intercept",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_0\\lr_lbfgs_clip",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_0\\lr_lbfgs_standard",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_1\\lr_l1_intercept",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_1\\lr_lbfgs_clip",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_1\\lr_lbfgs_standard",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_2\\lr_l1_intercept",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_2\\lr_lbfgs_clip",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    },
+    {
+      "directory": "repeat_1\\fold_2\\lr_lbfgs_standard",
+      "fit_rows": 960,
+      "calibration_rows": 320,
+      "threshold_rows": 320,
+      "assessment_rows": 800
+    }
+  ],
+  "historical_exclusion_rows": 600,
+  "development_rows": 2400,
+  "results": "All partition roles disjoint; all inner folds fit-only; serialized models reproduce all assessment predictions and metrics.",
+  "reproducibility_scope": "Exact predictions checked in the pinned local environment; runtime is hardware-dependent."
+}

@@ -1,0 +1,27 @@
+protocol_version: portfolio_v1
+base_config: config.yaml
+historical_test_manifest: historical_test_indices.csv
+dataset_identity: dataset_identity.json
+output: ../artifacts/portfolio_v1
+outer_seeds: [42, 43]
+outer_folds: 3
+inner_folds: 3
+fit_fraction: 0.60
+calibration_fraction: 0.20
+threshold_fraction: 0.20
+search_jobs: 2
+sigmoid_C: 1.0
+threshold_beta: 2.0
+permutation_repetitions: 99
+bootstrap_repetitions: 1000
+explanation_rows_per_confusion_cell: 8
+explanation_background_rows: 100
+explanation_stability_seeds: [42, 43, 44]
+lime_perturbations: 2000
+interpretation_repeat: 0
+interpretation_fold: 0
+notes:
+  - Historical test rows are excluded from every new fitting, selection, explanation and assessment step.
+  - Outer folds are development cross-validation, not a fresh external or untouched test set.
+  - All raw/sigmoid recipes and both family-selection procedures are reported; no seed selection.
+  - No early stopping or resampling; matched learning-rate/tree-count candidates use inner CV.

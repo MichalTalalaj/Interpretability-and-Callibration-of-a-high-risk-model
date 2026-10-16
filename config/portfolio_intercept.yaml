@@ -1,0 +1,18 @@
+protocol_version: portfolio_intercept_v1
+base_config: config.yaml
+historical_test_manifest: historical_test_indices.csv
+dataset_identity: dataset_identity.json
+output: ../artifacts/portfolio_intercept_v1
+outer_seeds: [42, 43]
+outer_folds: 3
+inner_folds: 3
+fit_fraction: 0.60
+calibration_fraction: 0.20
+threshold_fraction: 0.20
+search_jobs: 2
+sigmoid_C: 1.0
+threshold_beta: 2.0
+notes:
+  - Adaptive follow-up motivated by intercept penalization in development fits; not confirmatory validation.
+  - Identical partitions and C grids; no historical-test selection or assessment.
+  - L2 comparison changes solver and intercept treatment; L1 changes intercept_scaling only.

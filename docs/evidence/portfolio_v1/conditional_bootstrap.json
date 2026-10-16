@@ -1,0 +1,52 @@
+{
+  "comparisons": [
+    {
+      "challenger": "selector_glassbox",
+      "reference": "dummy",
+      "mode": "raw",
+      "mean_bootstrap_difference": 0.08041201777017988,
+      "p025": 0.05113624751537774,
+      "p975": 0.11503878325889909,
+      "repetitions": 1000
+    },
+    {
+      "challenger": "selector_blackbox",
+      "reference": "dummy",
+      "mode": "raw",
+      "mean_bootstrap_difference": 0.08070188932787026,
+      "p025": 0.05651953799755357,
+      "p975": 0.11039105906966487,
+      "repetitions": 1000
+    },
+    {
+      "challenger": "selector_blackbox",
+      "reference": "selector_glassbox",
+      "mode": "raw",
+      "mean_bootstrap_difference": 0.00028987155769036896,
+      "p025": -0.032831761160295216,
+      "p975": 0.03263871815101725,
+      "repetitions": 1000
+    },
+    {
+      "challenger": "lr_clip",
+      "reference": "lr_standard",
+      "mode": "raw",
+      "mean_bootstrap_difference": 0.032974520145956795,
+      "p025": 0.010151687492257018,
+      "p975": 0.059847982646077776,
+      "repetitions": 1000
+    },
+    {
+      "challenger": "lr_grouped",
+      "reference": "lr_clip",
+      "mode": "raw",
+      "mean_bootstrap_difference": 0.01078008658749281,
+      "p025": -0.009194644320574995,
+      "p975": 0.03281569308138477,
+      "repetitions": 1000
+    }
+  ],
+  "resampling": "Stratified ORIGINAL development rows; the same multiplicities are used across recipes, folds and repeats.",
+  "estimand": "Difference in mean of six outer-fold APs, conditional on the already fitted scores and observed prevalence.",
+  "warning": "Intervals do not include model retraining, adaptive experiment design, unknown borrower dependence or future distribution shift. Not evidence of statistical superiority."
+}

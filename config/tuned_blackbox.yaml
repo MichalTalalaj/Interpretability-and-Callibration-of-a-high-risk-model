@@ -1,0 +1,67 @@
+# Selected by training CV and validation threshold selection; see docs/tuning-results.md.
+random_seed: 42
+data:
+  path: ../zbiór_10.csv
+  target: default
+  encoding: utf-8-sig
+  separator: ','
+  features: null
+  drop_columns:
+  - szczegolnaFormaPrawna_Symbol
+  categorical_features:
+  - formaWlasnosci_Symbol
+  - schemat_wsk_bilans
+  - schemat_wsk_rzis
+  - pkdKod
+  test_size: 0.2
+  validation_size: 0.2
+preprocessing:
+  numeric_imputation: median
+  add_missing_indicators: true
+  variance_threshold: 0.0
+models:
+  glassbox:
+    C: 2.0
+    penalty: l2
+    solver: liblinear
+    max_iter: 1000
+    class_weight: null
+  blackbox:
+    balance_multiplier: null
+    colsample_bytree: 1.0
+    eval_metric: aucpr
+    gamma: 2.0
+    learning_rate: 0.03
+    max_depth: 4
+    min_child_weight: 10
+    n_estimators: 250
+    n_jobs: 1
+    objective: binary:logistic
+    reg_alpha: 0.0
+    reg_lambda: 100.0
+    subsample: 1.0
+    tree_method: hist
+calibration:
+  method: none
+  sigmoid_C: 1000000.0
+  max_iter: 1000
+tuning:
+  n_iter: 40
+  cv_folds: 5
+  n_jobs: 2
+  threshold_beta: 2.0
+evaluation:
+  threshold: 0.056097958236932755
+  psi_bins: 10
+  psi_epsilon: 1.0e-06
+  calibration_bins: 10
+explainability:
+  methods:
+  - native
+  - shap
+  background_size: 100
+  sample_size: 20
+  lime_num_samples: 1000
+  top_features: 15
+output:
+  directory: ../artifacts/selected

@@ -1,0 +1,129 @@
+{
+  "families": {
+    "glassbox": {
+      "selected_recipe": "lr_rare",
+      "repeat": 0,
+      "fold": 0,
+      "explained_assessment_rows": 800,
+      "assessment_events": 49,
+      "transformed_features": 235,
+      "retained_raw_fields": 218,
+      "stratified_case_rows": 32,
+      "cell_counts": {
+        "TN": 443,
+        "FP": 308,
+        "TP": 33,
+        "FN": 16
+      },
+      "background_rows": 100,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "shap_additivity_max_error": 1.1102230246251565e-16,
+      "background_stability": [
+        {
+          "seed_a": 42,
+          "seed_b": 43,
+          "top10_jaccard": 1.0,
+          "global_rank_spearman": 0.9667464516340815
+        },
+        {
+          "seed_a": 42,
+          "seed_b": 44,
+          "top10_jaccard": 1.0,
+          "global_rank_spearman": 0.9725497793006324
+        },
+        {
+          "seed_a": 43,
+          "seed_b": 44,
+          "top10_jaccard": 1.0,
+          "global_rank_spearman": 0.9692967348884387
+        }
+      ],
+      "mean_top5_local_sign_agreement": 1.0,
+      "calibration_slope": 0.5286992096826204,
+      "calibration_intercept": -2.648461206396946,
+      "lime_seconds": 2.4403750999990734,
+      "scope": "SHAP/native explain base log odds. LIME approximates base probability. Sigmoid decisions shown separately.",
+      "sampling": "All assessment rows for SHAP; up to 8 random cases per confusion cell for LIME. Not population-weighted sampling.",
+      "lime_summary": {
+        "explanations": 96,
+        "cases": 32,
+        "r2_median": 0.7701261109255702,
+        "r2_p10": 0.7386447555077436,
+        "absolute_error_median": 0.0033972964812885864,
+        "absolute_error_p90": 0.0067279503291031995,
+        "selected15_jaccard_mean": 0.984375
+      }
+    },
+    "blackbox": {
+      "selected_recipe": "xgb_search",
+      "repeat": 0,
+      "fold": 0,
+      "explained_assessment_rows": 800,
+      "assessment_events": 49,
+      "transformed_features": 502,
+      "retained_raw_fields": 218,
+      "stratified_case_rows": 32,
+      "cell_counts": {
+        "TN": 471,
+        "FP": 280,
+        "TP": 33,
+        "FN": 16
+      },
+      "background_rows": 100,
+      "seeds": [
+        42,
+        43,
+        44
+      ],
+      "shap_additivity_max_error": 2.0668298567061427e-07,
+      "background_stability": [
+        {
+          "seed_a": 42,
+          "seed_b": 43,
+          "top10_jaccard": 0.8181818181818182,
+          "global_rank_spearman": 0.9998075062433829
+        },
+        {
+          "seed_a": 42,
+          "seed_b": 44,
+          "top10_jaccard": 0.8181818181818182,
+          "global_rank_spearman": 0.9998312030662315
+        },
+        {
+          "seed_a": 43,
+          "seed_b": 44,
+          "top10_jaccard": 1.0,
+          "global_rank_spearman": 0.9998665765843965
+        }
+      ],
+      "mean_top5_local_sign_agreement": 1.0,
+      "calibration_slope": 0.6362637940558147,
+      "calibration_intercept": -0.8205463234668859,
+      "lime_seconds": 6.336805200000526,
+      "scope": "SHAP/native explain base log odds. LIME approximates base probability. Sigmoid decisions shown separately.",
+      "sampling": "All assessment rows for SHAP; up to 8 random cases per confusion cell for LIME. Not population-weighted sampling.",
+      "lime_summary": {
+        "explanations": 96,
+        "cases": 32,
+        "r2_median": 0.2631585476154581,
+        "r2_p10": 0.13410029811860974,
+        "absolute_error_median": 0.01359437270573825,
+        "absolute_error_p90": 0.04579593077781021,
+        "selected15_jaccard_mean": 0.5873317679431179
+      }
+    }
+  },
+  "total_seconds": 11.703239500000564,
+  "historical_test_used": false,
+  "case_selection": "Fixed outer development repeat 0, fold 0; stratified random successes/errors, seed 42.",
+  "limits": [
+    "One predeclared outer model per family, not all fitted models.",
+    "Background stability does not establish retraining stability or causality.",
+    "LIME perturbs transformed one-hot fields independently; synthetic profiles can be implausible.",
+    "Weighted training R2 is local in-sample surrogate fit, not out-of-sample faithfulness."
+  ]
+}
