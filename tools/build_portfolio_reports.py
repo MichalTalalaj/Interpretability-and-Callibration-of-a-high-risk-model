@@ -603,12 +603,15 @@ It uses the existing pinned environment; CI installs dependencies independently.
   using CRLF/LF-normalized bytes, while retaining the original raw-byte hash too.
 - New local outputs: `artifacts/portfolio_v1`, `artifacts/portfolio_intercept_v1`,
   and `reports/portfolio_v1/{results_presentation.pptx,results_presentation.pdf,theory_guide.pdf,technical_report.pdf}`.
-- Original baseline/selected models, metrics, explanations and earlier PDFs remain
+- Original local baseline/selected models, metrics, explanations and earlier PDFs remain
   unchanged. The current presentation PDF and PowerPoint are published; fitted artifacts,
   the theory PDF and other generated reports remain Git-ignored.
 - Verified audit findings include severe missingness, rare categories, duplicate
   predictor columns and extreme/infinite ratios. Borrower identity, timing and
   feature availability need source documentation before real risk decisions.
+- Obsolete root-level notebooks, script exports, runners, model binaries and the
+  superseded presentation were removed from `main`. The [migration audit](docs/refactoring-audit.md)
+  lists replacements and the Git revision retaining the originals.
 
 The remaining sections document the **historical baseline and legacy CLI** for
 reproduction and API reference. They are not the current assessment protocol.

@@ -1,12 +1,13 @@
 # Historical refactoring audit and migration decisions
 
-This note records the earlier refactor. The original README identified `OLD_`
-files as outdated. The table describes the working-tree removals made during
-that stage, not deletions published by the current portfolio release. The current
-release preserves the already tracked historical notebooks, runners, presentation
-and model binaries, and leaves pending deletions uncommitted. Those historical
-files are references; the supported implementation is `src/` and the current
-development protocol is documented at the top of the README.
+This note records the earlier refactor and the subsequent removal of obsolete
+root-level files from `main`. The original README identified `OLD_` files as
+outdated. The files listed below were superseded by the supported implementation
+in `src/` and `main.py`, and by the current presentation in `reports/portfolio_v1/`.
+Their last retained versions are available in commit
+[`3a494a4`](https://github.com/MichalTalalaj/Interpretability-and-Callibration-of-a-high-risk-model/tree/3a494a4ee5c03f67e79904b2a4398804c007e15a).
+The current dataset, frozen experiment evidence and local baseline artifacts are
+preserved. The development protocol is documented at the top of the README.
 
 | Original files | Decision and replacement |
 | --- | --- |
