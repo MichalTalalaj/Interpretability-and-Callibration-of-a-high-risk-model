@@ -6,7 +6,7 @@ import fitz
 from PIL import Image,ImageDraw
 from pptx import Presentation
 ROOT=Path(__file__).resolve().parents[1]
-parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--report-dir',type=Path,default=ROOT/'reports/portfolio_v1')
+parser=argparse.ArgumentParser(description=__doc__);parser.add_argument('--report-dir',type=Path,default=ROOT/'reports/generated')
 folder=parser.parse_args().report_dir.resolve()
 preview=folder/'previews';preview.mkdir(exist_ok=True)
 results={}

@@ -1,6 +1,6 @@
 # Portfolio audit: reproducible development evidence
 
-Snapshot: 16 October 2026. All new assessment below is repeated nested **development CV**, excluding the already inspected 600 historical test rows. There is no untouched final assessment cohort. The goal is defensible evidence, not a claim of production readiness.
+Experiment snapshot: 16 October 2026. Assessment uses repeated nested **development CV**, excluding the already inspected 600 historical test rows. There is no untouched final assessment cohort. The results do not establish production readiness.
 
 ## Main findings
 
@@ -48,7 +48,7 @@ Original logistic AP was 0.611 in training versus 0.106 in validation. Original 
 
 Inspecting the actual old tree structures finds 0/300 constant trees and 10.76 mean leaves for the baseline, versus 40/250 constant trees and 2.46 mean leaves (maximum four) for the selected model. This verifies strong fitted restriction; it does not alone prove that weaker regularization will generalize.
 
-The frozen historical configurations are re-evaluated under the exact same new development protocol as all other recipes. Their new rows (`lr_legacy`, `lr_historical_selected`, `xgb_legacy`, `xgb_historical_selected`) provide controlled comparisons without selecting anything from the historical test.
+The frozen historical configurations are re-evaluated under the same development protocol as all other recipes. Their rows (`lr_legacy`, `lr_historical_selected`, `xgb_legacy`, `xgb_historical_selected`) provide controlled comparisons without selecting anything from the historical test.
 
 ## All planned ablations
 
@@ -142,7 +142,7 @@ The paired bootstrap resamples the original development rows, stratified by outc
 
 ## Interpretation and stability
 
-Interpretation uses predeclared outer repeat 0/fold 0, with each family’s recipe chosen solely by that fold’s inner AP. SHAP covers all 800 held-out development rows per family, over three 100-row fit-only backgrounds (seeds 42/43/44). No historical test rows enter the new interpretation. Global importances average absolute base-log-odds SHAP; correlated raw fields are also grouped using fit-only |rho|≥.98 connected components, summing signed effects before taking mean absolute magnitude. A connected group may link fields whose mutual correlation is below .98 through a chain.
+Interpretation uses predeclared outer repeat 0/fold 0, with each family’s recipe chosen solely by that fold’s inner AP. SHAP covers all 800 held-out development rows per family, over three 100-row fit-only backgrounds (seeds 42/43/44). Historical test rows are excluded from interpretation. Global importances average absolute base-log-odds SHAP; correlated raw fields are also grouped using fit-only |rho|≥.98 connected components, summing signed effects before taking mean absolute magnitude. A connected group may link fields whose mutual correlation is below .98 through a chain.
 
 ### glassbox
 
@@ -171,23 +171,29 @@ LIME has 96 explanations (32 cases × 3 seeds), each using 2,000 perturbations. 
 
 Jaccard uses retained raw fields for explicit selectors and nonzero raw-field membership for L1. Keeping every field trivially gives high retention overlap; it is not evidence of stable effect magnitudes. Pairwise fold fits share training rows, so these are descriptive stability measurements.
 
-SHAP/native are base log odds, LIME is a base-probability surrogate, and the sigmoid is a separate score mapping. Exact base reconstruction does not establish economic causality. The balanced success/error sample is intentionally not population-weighted; LIME can generate fractional one-hot values and implausible financial combinations. Its weighted R² is in-sample synthetic fidelity, not held-out faithfulness. The full case table, weights and diagnostics are retained. The new presentation also shows the first randomly sampled FN for each family, with its signed SHAP terms and actual raw/calibrated score and threshold; these are errors, not favorable maximum-score examples.
+SHAP/native are base log odds, LIME is a base-probability surrogate, and the sigmoid is a separate score mapping. Exact base reconstruction does not establish economic causality. The balanced success/error sample is intentionally not population-weighted; LIME can generate fractional one-hot values and implausible financial combinations. Its weighted R² is in-sample synthetic fidelity, not held-out faithfulness. The full case table, weights and diagnostics are retained. Error case studies show the first randomly sampled FN for each family, with its signed SHAP terms and actual raw/calibrated score and threshold; these are errors, not favorable maximum-score examples.
 
 ## Validation and reproducibility
 
-All 126 saved base models across the planned and adaptive runs reproduce their assessment predictions. Every fit/calibration/threshold/assessment role is disjoint, every inner fold is fit-only, all metric/count exports are recomputed from predictions, and the original 101 artifact/report files are hash-verified unchanged. Nineteen unit tests include assessment-label isolation, frozen transforms, monotone calibration, clone/weight behavior and a portable exclusion/audit workflow that does not require ignored baseline artifacts.
+All 126 saved base models across the planned and adaptive runs reproduce their
+assessment predictions. Fit, calibration, threshold and assessment roles are
+disjoint, inner folds use fit rows only, and metric/count exports are recomputed
+from predictions. Automated checks cover assessment-label isolation, frozen
+transforms, monotone calibration, clone/weight behavior and portable exclusions.
 
-A cold reproduction reruns two complete recipes across all six outer folds using the portable tracked manifest, comparing raw/sigmoid probabilities, thresholds and labels. The record is `reproduction_check.json`; all original fitting/selection code/configs are archived locally under each run’s source_snapshot. Compact fold-level evidence and the current presentation PDF/PowerPoint are tracked. Fitted models, the theory PDF and other generated reports remain local under ignored directories.
+Saved-model verification is distinct from refitting. Independent refits reproduce
+the recorded selected settings, outer metrics and development predictions in the
+pinned environment. Inner L1 search scores vary slightly; exact inner-search
+bitwise reproducibility is not claimed and the cause was not isolated. Records:
+[two-recipe refits](evidence/portfolio_v1/reproduction_check.json) and
+[full refits](evidence/portfolio_v1/publication_check.json). The explanation study
+was not repeated in the full-refit check.
 
-Reproduce the protocol, adaptive follow-up, interpretation and validation with the commands in README.md. Existing output directories are immutable by default; exact resumptions reject changed code/data/configuration. Use a new output directory for a new reproduction. The portable exclusion manifest preserves the original 600 indices verbatim and includes no labels; a CRLF/LF-normalized dataset hash rejects content or ordering changes. The original raw-byte hash is retained too.
-
-Publication verification refits both studies in an export of the staged Git index,
-without copying ignored artifacts. `publication_check.json` records the comparison
-of selected settings, outer metrics and development predictions. Inner L1 search
-scores show small between-refit variation; exact inner-search bitwise reproducibility
-is not claimed, and the cause was not isolated. This check uses the existing pinned
-local environment, rather than a fresh dependency installation. The recorded SHAP
-and LIME study is not repeated as part of this publication check.
+The [reproduction guide](reproduction.md) describes commands and outputs.
+Experiment directories are immutable by default; resumption rejects changed
+code, data or configuration. The frozen exclusion manifest contains 600 original
+indices without labels. A CRLF/LF-normalized dataset hash rejects content or
+ordering changes; the original raw-byte hash is retained.
 
 ## What is still needed before deployment
 
@@ -195,4 +201,4 @@ A documented target horizon/event definition; borrower identifiers and statement
 
 ## Sources
 
-Method references are linked in the local theory PDF. Key primary sources: [scikit-learn CV](https://scikit-learn.org/1.5/modules/cross_validation.html), [LogisticRegression](https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html), [calibration](https://scikit-learn.org/1.5/modules/calibration.html), [XGBoost](https://xgboost.readthedocs.io/en/stable/parameter.html), [SHAP paper](https://arxiv.org/abs/1705.07874), [LIME paper](https://arxiv.org/abs/1602.04938). Project measurements are from the supplied CSV and saved experiment outputs.
+Primary method references: [scikit-learn CV](https://scikit-learn.org/1.5/modules/cross_validation.html), [LogisticRegression](https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html), [calibration](https://scikit-learn.org/1.5/modules/calibration.html), [XGBoost](https://xgboost.readthedocs.io/en/stable/parameter.html), [SHAP paper](https://arxiv.org/abs/1705.07874), [LIME paper](https://arxiv.org/abs/1602.04938). Project measurements are from the supplied CSV and saved experiment outputs.

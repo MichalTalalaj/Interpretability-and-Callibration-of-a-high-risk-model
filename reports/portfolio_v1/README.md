@@ -1,10 +1,13 @@
-# Current portfolio presentation
+# Credit-model results presentation
 
-- [Editable PowerPoint](results_presentation.pptx): 35 slides with editable text/tables and actual chart outputs.
-- [Presentation PDF](results_presentation.pdf): matching slides generated from the same layout.
+- [Slide PDF](results_presentation.pdf)
+- [Editable PowerPoint](results_presentation.pptx)
 
-The presentation compares regularized logistic regression (glassbox) with XGBoost
-(blackbox), including model tradeoffs, data limitations, imbalance handling,
-calibration, controlled ablations and native, SHAP and LIME interpretation outputs.
-Repeated nested development cross-validation is the assessment protocol; the
-previously inspected historical test is excluded from further selection.
+The 35-slide presentation compares regularized logistic regression and XGBoost,
+covering data limitations, nested development evaluation, preprocessing ablations,
+calibration, decision thresholds and native, SHAP and LIME outputs.
+The previously inspected historical test is excluded from the development study.
+
+See the [technical report](../../docs/portfolio-audit.md) for complete results and
+the [reproduction guide](../../docs/reproduction.md) for report-generation inputs,
+commands and output paths. The slides describe the recorded experiment snapshot.

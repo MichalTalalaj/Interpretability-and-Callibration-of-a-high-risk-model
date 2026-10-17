@@ -28,7 +28,7 @@ The latter is an explicitly adaptive intercept follow-up.
 - `environment-freeze.txt`: exact installed-package inventory, including optional
   reporting dependencies, from the recorded Windows/CPython 3.12.14 environment.
   It is not a universal cross-platform or hash-locked dependency specification.
-- `publication_check.json`: clean staged-export refits of both studies, selected
+- `publication_check.json`: independent refits of both studies, selected
   settings, outer metrics and development-prediction comparisons. Small observed
   inner L1 search-score variation is recorded separately; its cause was not isolated.
 

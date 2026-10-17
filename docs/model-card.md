@@ -28,7 +28,7 @@ calibration improves probability levels in several settings but cannot create
 ranking signal. About 20 calibration events per subset limit certainty.
 
 F2 expresses a preference for recall, not business costs. False positives,
-flagged volume and calibration must be considered alongside AP. The new score
+flagged volume and calibration must be considered alongside AP. The CV score
 estimates have a different fitting budget from the historical experiments;
 direct claims of historical-test improvement would be misleading.
 

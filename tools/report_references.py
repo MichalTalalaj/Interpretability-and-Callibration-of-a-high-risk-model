@@ -1,0 +1,23 @@
+"""Primary method references used by the theory guide."""
+SOURCES = [
+('R1','Logistic regression: penalties, C and class weights','https://scikit-learn.org/1.5/modules/generated/sklearn.linear_model.LogisticRegression.html'),
+('R2','XGBoost: A Scalable Tree Boosting System (Chen & Guestrin, 2016)','https://arxiv.org/abs/1603.02754'),
+('R3','XGBoost parameter reference','https://xgboost.readthedocs.io/en/release_2.1.0/parameter.html'),
+('R4','RandomizedSearchCV and multiple scoring metrics','https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.RandomizedSearchCV.html'),
+('R5','StratifiedKFold','https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.StratifiedKFold.html'),
+('R6','Preprocessing: standardization and encoding','https://scikit-learn.org/1.5/modules/preprocessing.html'),
+('R7','Missing-value imputation','https://scikit-learn.org/1.5/modules/impute.html'),
+('R8','F-beta score','https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.fbeta_score.html'),
+('R9','ROC-AUC','https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.roc_auc_score.html'),
+('R10','Average precision','https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.average_precision_score.html'),
+('R11','Brier loss','https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.brier_score_loss.html'),
+('R12','Log loss','https://scikit-learn.org/1.5/modules/generated/sklearn.metrics.log_loss.html'),
+('R13','Probability calibration','https://scikit-learn.org/1.5/modules/calibration.html'),
+('R14','A Unified Approach to Interpreting Model Predictions (Lundberg & Lee, 2017)','https://arxiv.org/abs/1705.07874'),
+('R15','SHAP LinearExplainer','https://shap.readthedocs.io/en/latest/generated/shap.LinearExplainer.html'),
+('R16','SHAP TreeExplainer','https://shap.readthedocs.io/en/latest/generated/shap.TreeExplainer.html'),
+('R17','Why Should I Trust You? (Ribeiro, Singh & Guestrin, 2016)','https://arxiv.org/abs/1602.04938'),
+('R18','LIME tabular API','https://lime-ml.readthedocs.io/en/latest/lime.html#module-lime.lime_tabular'),
+('R19','SciPy two-sample Kolmogorov-Smirnov statistic','https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.ks_2samp.html'),
+('R20','Metrics and scoring overview','https://scikit-learn.org/1.5/modules/model_evaluation.html'),
+]
