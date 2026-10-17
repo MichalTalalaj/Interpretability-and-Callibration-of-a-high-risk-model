@@ -5,7 +5,7 @@ imbalanced financial data. The study evaluates preprocessing, feature selection,
 class weighting, probability calibration, decision thresholds and explanation
 reliability. The dataset contains **3,000 observations and 183 defaults (6.1%)**.
 
-[Technical report](docs/portfolio-audit.md) · [Data card](docs/data-card.md) ·
+[Reading guide](docs/reading-guide.md) · [Technical report](docs/portfolio-audit.md) · [Data card](docs/data-card.md) ·
 [Model card](docs/model-card.md) · [Experiment evidence](docs/evidence/portfolio_v1/README.md) ·
 [Presentation PDF](reports/portfolio_v1/results_presentation.pdf) ·
 [PowerPoint](reports/portfolio_v1/results_presentation.pptx)
